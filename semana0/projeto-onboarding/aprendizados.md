@@ -1,0 +1,3 @@
+# Aprendizados da semana
+
+Aprendi tantas coisas novas que nem sei por onde começar. Pois bem, aprendi a usar o Slack, que é uma ferramenta maravilhosa e até então eu não conhecia. Adquiri um bom conhecimento de terminal. Ja conhecia, mas sabia bem pouquinho. E o que mais aprendi e que foi bem proveitoso, foi como funciona o **Git**. Seu sistema de repositorio, as branchs e tudo mais e os comandos tambem. Aprendi bastante.
