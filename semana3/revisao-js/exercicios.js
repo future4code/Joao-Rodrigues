@@ -61,9 +61,12 @@ function retornaExpressoesBooleanas() {
 
 function retornaNNumerosPares(n) {
    // implemente sua lógica aqui
+   let arrayPares = []
    for(let i=0; i<n; i++){
-      console.log(i*2)
+      arrayPares = i*2
    }
+
+   return arrayPares
 }
 
 // Exercício 8
@@ -136,7 +139,7 @@ function ordenaArray(array) {
 
 function filmeFavorito() {
    // implemente sua lógica aqui
-   const filmefavorito = {
+   let filmeFavorito = {
       nome: 'O Diabo Veste Prada',
       ano: 2006,
       diretor: 'David Frankel',
@@ -150,18 +153,42 @@ function filmeFavorito() {
 
 function imprimeChamada() {
    // implemente sua lógica aqui
+   let filmeFavorito = {
+      nome: 'O Diabo Veste Prada',
+      ano: 2006,
+      diretor: 'David Frankel',
+      atores: ['Meryl Streep','Anne Hathaway','Emily Blunt','Stanley Tucci']
+   }
+
+   return `Venha assistir ao filme ${filmeFavorito.nome}, de ${filmeFavorito.ano}, dirigido por ${filmeFavorito.diretor} e 
+   estrelado por ${filmeFavorito.atores[0]}, ${filmeFavorito.atores[1]}, ${filmeFavorito.atores[2]} e ${filmeFavorito.atores[3]}`
 }
 
 // Exercício 14
 
 function criaRetangulo(lado1, lado2) {
    // implemente sua lógica aqui
+   const retangulo = {
+      largura: lado1,
+      altura: lado2,
+      perimetro: 2*(lado1 + lado2),
+      area: lado1*lado2
+   }
+
+   return retangulo
 }
 
 // Exercício 15
 
 function anonimizaPessoa(pessoa) {
    // implemente sua lógica aqui
+
+   novaPessoa = {
+      ...pessoa,
+      nome:'ANÔNIMO'
+   }
+
+   return novaPessoa
 }
 
 // Exercício 16
@@ -172,6 +199,22 @@ const arrayDePessoas = [
   { nome: "Paula", idade: 12 },
   { nome: "Artur", idade: 89 } 
 ]
+
+const maiorDeIdade = ()=>{
+   const arrayDePessoasAdultos = arrayDePessoas.filter((pessoa)=>{
+      return pessoa.idade >= 20
+   })
+
+   return arrayDePessoasAdultos
+}
+
+const menorDeIdade = ()=>{
+   const arrayDePessoasMenores = arrayDePessoas.filter((pessoa)=>{
+      return pessoa.idade < 20
+   })
+
+   return arrayDePessoasMenores
+}
 
 // Exercício 16, letra A
 
