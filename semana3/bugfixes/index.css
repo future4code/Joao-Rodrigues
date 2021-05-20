@@ -102,6 +102,7 @@ div:last-child {
 }
 
 table {
+    margin: 0 auto;
     width: 60%;
     text-align: center;
 }
@@ -148,6 +149,11 @@ td img{
 
 #back-button:hover {
     background-color: #635a3d
+}
+
+#div-btn{
+    width: 100px;
+    margin: 0 auto;
 }
 
 input{
