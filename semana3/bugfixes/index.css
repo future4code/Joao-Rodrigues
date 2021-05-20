@@ -9,6 +9,10 @@
     padding: 0;
 }
 
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
@@ -68,13 +72,6 @@ div>p:first-child {
     background-color: #2274a5;
     color: white;
     padding-top: 50px;
-}
-
-#container-de-descricao>p{
-    display: block;
-    width: 180px;
-    text-align: center;
-    margin: 0 auto;
 }
 
 #container-de-descricao>ol {
