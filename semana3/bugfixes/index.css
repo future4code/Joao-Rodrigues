@@ -152,3 +152,8 @@ td img{
 #back-button:hover {
     background-color: #635a3d
 }
+
+input{
+    border: none;
+    border-bottom: 2px solid #333;
+}
