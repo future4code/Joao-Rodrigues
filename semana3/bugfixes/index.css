@@ -125,6 +125,11 @@ td button {
     color: black;
 }
 
+td img{
+    height: 50px;
+    width: 50px;
+}
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
