@@ -1,0 +1,157 @@
+/*RESET*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*ESTILOS GERAIS*/
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+h2{
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/*MENU*/
+.barra-menu{
+    padding: 0 50px;
+    background-color: #09B57B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a{
+    font-size: 26px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.menu ul{
+    display: flex;
+}
+
+.menu ul li a{
+    display: block;
+    padding: 18px 15px;
+    color: #fff;
+    transition: .3s;
+}
+
+.menu ul li a:hover{
+    background-color: #067c55;
+}
+
+/*BANNER*/
+.banner{
+    height: 540px;
+    background-image: url("../img/banner-portfolio.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 90px 50px;
+}
+
+.lista-redes{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.lista-redes a{
+    color: #fff;
+    margin: 14px 0;
+}
+
+/*SOBRE*/
+#sobre{
+    max-width: 1020px;
+    margin: 80px auto;
+}
+
+#sobre p{
+    font-size: 14px;
+    color: #666;
+}
+
+/*HABILIDADES*/
+#habilidades-container{
+    background-color: #09B57B;
+    padding: 60px 0;
+    color: #fff;
+}
+
+#habilidades-container h2{
+    text-align: center;
+    color: #fff;
+}
+
+.habilidades{
+    margin: 60px auto 0 auto;
+    max-width: 1020px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tecnicas{
+    padding: 10px 0;
+    flex: 1;
+    border-right: 3px solid #fff;
+}
+
+.comportamentais{
+    text-align: right;
+    flex: 1;
+}
+
+.habilidades ul li{
+    margin: 5px 0;
+}
+
+/*CURSOS E EXPERIENCIAS*/
+
+#cursos-experiencias{
+    width: 1020px;
+    margin: 0 auto;
+    padding: 80px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card{
+    width: 300px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+.card h3{
+    text-align: center;
+    background-color: #09B57B;
+    color: #252525;
+    padding: 5px 0;
+}
+
+.card ul li{
+    margin-bottom: 5px;
+}
+
+.cursos, .experiencias{
+    padding: 10px;
+}
+
+
+
+
