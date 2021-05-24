@@ -1,0 +1,65 @@
+/*RESET*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*ESTILOS GERAIS*/
+a{
+    text-decoration: none;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
+
+/*HEADER*/
+header{
+    padding: 15px;
+    background-color: mediumvioletred;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo a img{
+    width: 15px;
+    margin-right: 12px;
+}
+
+.logo a h4{
+    color: black;
+}
+
+header button{
+    cursor: pointer;
+}
+
+/*MAIN*/
+main{
+    display: flex;
+}
+
+aside{
+    background-color: #f2d0e0;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.menu-item {
+    display: flex;
+    margin: 10px 0;
+}
+
+.menu-item img{
+    width: 7%;
+}
