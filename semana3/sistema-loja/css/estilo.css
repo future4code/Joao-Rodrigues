@@ -1,0 +1,104 @@
+/*RESET*/
+body, h1, h2, p, a{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+/*Chamada da Loja*/
+.chamada{
+    background-color: orangered;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.chamada h1{
+    font-size: 18px;
+}
+
+.chamada p{
+    font-size: 14px;
+}
+
+
+/*Cabecalho*/
+.logo a{
+    color: #fff;
+}
+
+.cabecalho{
+    background: #151515;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul{
+    display: flex;
+}
+
+nav ul li{
+    margin-left: 15px ;
+}
+
+nav ul li a{
+    padding: 5px;
+    color: #fff;
+    font-size: 14px;
+    transition: 0.3s; 
+}
+
+nav ul li a:hover{
+    color: orangered; 
+}
+
+/*FOOTER*/
+
+.rodape{
+    padding: 10px;
+    margin-top: 450px;
+    background-color: orangered;
+}
+
+.rodape p{
+    text-align: center;
+}
+
+.redes-sociais{
+    width: 105px;
+    margin: 10px auto;
+}
+
+.redes-sociais img{
+    height: 30px;
+    width: 30px;
+}
+
+.caixa{
+    width: 500px;
+    margin: 50px auto;
+    border: 5px solid red;
+    padding: 20px;
+}
+
+

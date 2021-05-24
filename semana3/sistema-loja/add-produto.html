@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Adicionar Produto</title>
+</head>
+<body>
+    <div class="chamada">
+        <p>Konoha Store</p>
+    </div>
+
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="index.html">KONOHA STORE</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="ctrl-estoque.html">Controle de Estoque</a></li>
+                <li><a href="add-produto.html">Adicionar Produto</a></li>
+                <li><a href="funcionarios.html">Funcionários</a></li>
+            </ul> 
+        </nav>
+    </header>
+
+    
+    <h2>Adicionar Produto</h2>
+    <form action="">
+        <div>
+            <label for="link-foto">Link para foto: </label>
+            <input type="url" id="link-foto" name="link-foto">
+        </div>
+        
+        <div>
+            <label for="descricao">Descrição do produto: </label>
+            <input type="text" id="descricao" name="descrição">
+        </div>
+        
+        <div>
+            <label for="preco">Preço (em R$): </label>
+            <input type="text" id="preco" name="preço">
+        </div>
+        
+        <div>
+            <label for="quantidade">Quantidade disponível: </label>
+            <input type="number" id="quantidade" name="quantidade" min="0" max="250">
+        </div>
+
+        <div class="form-add">
+            <button type="submit">Adicionar</button>
+        </div>
+
+    </form>
+
+    <footer class="rodape">
+        <p>Siga-nos nas redes sociais!</p>
+
+        <div class="redes-sociais">
+            <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
+            <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
+            <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+        </div> 
+    </footer>
+
+</body>
+</html>
