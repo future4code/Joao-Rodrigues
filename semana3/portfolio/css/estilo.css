@@ -1,12 +1,12 @@
 /*RESET*/
-*{
+body, h1, h2, h3, p, ul, li, a{
     margin: 0;
     padding: 0;
 }
 
 /*ESTILOS GERAIS*/
 body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Nunito', sans-serif;;
 }
 
 *{
@@ -28,9 +28,33 @@ h2{
 }
 
 .container{
-    width: 1020px;
+    max-width: 1020px;
     margin: 0 auto;
     padding: 80px 0;
+}
+
+/*INFO*/
+.info-container{
+    background-color: #067c55;
+}
+
+.info{
+    padding: 7px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info a{
+    color: white;
+}
+
+.info .redes a{
+    margin: 0 10px;
+    transition: .3s;
+}
+
+.info .redes a:hover{
+    color: #252525;
 }
 
 /*MENU*/
@@ -50,7 +74,7 @@ h2{
 }
 
 .menu ul li a{
-    font-size: 14px;
+    font-size: 16px;
     display: block;
     padding: 18px 15px;
     color: #fff;
@@ -64,31 +88,42 @@ h2{
 /*BANNER*/
 .banner{
     height: 540px;
-    background-image: url("../img/banner-portfolio.jpg");
+    background-image: url("../img/bg.jpg");
+    background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 90px 50px;
 }
 
-.lista-redes{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+.banner h1{
+    font-size: 52px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
 }
 
-.lista-redes a{
-    color: #fff;
-    margin: 14px 0;
-    transition: .3s;
-}
-
-.lista-redes a:hover{
-    color: #09B57B;
+.banner h2{
+   color: white;
+   text-align: center;
+   margin-bottom: 0;
 }
 
 /*SOBRE*/
+.sobre{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sobre p{
+    width: 500px;
+}
+
+.img-item img{
+    width: 400px;
+}
+
 #sobre p{
-    font-size: 14px;
+    font-size: 16px;
     color: #666;
 }
 
