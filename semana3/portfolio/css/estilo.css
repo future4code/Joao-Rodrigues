@@ -1,0 +1,253 @@
+/*RESET*/
+body, h1, h2, h3, p, ul, li, a{
+    margin: 0;
+    padding: 0;
+}
+
+/*ESTILOS GERAIS*/
+body{
+    font-family: 'Nunito', sans-serif;;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+h2{
+    font-size: 36px;
+    color: #252525;
+    margin-bottom: 15px;
+}
+
+/*INFO*/
+.info-container{
+    background-color: #067c55;
+}
+
+.info{
+    padding: 7px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info a{
+    color: white;
+}
+
+.info .redes a{
+    margin: 0 10px;
+    transition: .3s;
+}
+
+.info .redes a:hover{
+    color: #252525;
+}
+
+/*MENU*/
+.barra-menu{
+    padding: 0 50px;
+    background-color: #09B57B;
+    display: flex;
+    justify-content: center;
+}
+
+.active{
+    background-color: #067c55;
+}
+
+.menu ul{
+    display: flex;
+}
+
+.menu ul li a{
+    font-size: 16px;
+    display: block;
+    padding: 18px 15px;
+    color: #fff;
+    transition: .3s;
+}
+
+.menu ul li a:hover{
+    background-color: #067c55;
+}
+
+/*BANNER*/
+.banner{
+    height: 540px;
+    background-image: url("../img/bg.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 90px 50px;
+}
+
+.banner h1{
+    font-size: 52px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.banner h2{
+   color: white;
+   text-align: center;
+   margin-bottom: 0;
+}
+
+/*SOBRE*/
+.sobre{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sobre p{
+    width: 500px;
+}
+
+.img-item img{
+    width: 400px;
+}
+
+#sobre p{
+    font-size: 16px;
+    color: #666;
+}
+
+/*HABILIDADES*/
+#habilidades-container{
+    background-color: #09B57B;
+    padding: 40px 0 30px 0;
+    color: #fff;
+}
+
+#habilidades-container h2{
+    text-align: center;
+    color: #fff;
+}
+
+.habilidades{
+    display: flex;
+    justify-content: space-between;
+}
+
+.front, .back{
+    padding: 10px 0;
+    flex: 1;
+    text-align: center;
+}
+.front{
+    border-right: 3px solid #fff;
+}
+
+#habilidades-container h3{
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.front ul, .back ul{
+    font-size: 18px;
+}
+/*CURSOS E EXPERIENCIAS*/
+
+#cursos-experiencias{
+    display: flex;
+    justify-content: space-around;
+}
+
+.card{
+    width: 300px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+.card h3{
+    text-align: center;
+    background-color: #09B57B;
+    color: #252525;
+    padding: 5px 0;
+}
+
+.card ul li{
+    margin-bottom: 5px;
+}
+
+.cursos, .experiencias{
+    padding: 10px;
+}
+
+/*CONTATO*/
+#contato{
+    background-color: #09B57B;
+}
+
+#contato h2{
+    text-align: center;
+}
+
+form{
+    margin: 50px auto 20px auto;
+    width: 600px;
+}
+
+input, textarea{
+    outline: none;
+    padding: 7px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn{
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #fff;
+    transition: .3s;
+    color: #666;
+}
+
+.btn:hover{
+    background-color: #067c55;
+    color: white;
+}
+
+/*RODAPE*/
+.rodape{
+    background-color: #067c55;
+    padding: 10px 50px;
+}
+
+.redes-rodape{
+    width: 300px;
+    margin: 0 auto;
+}
+
+.redes-rodape a{
+    margin: 0 20px;
+    color: white;
+    transition: .3s;
+}
+
+.redes-rodape a:hover{
+    color: #252525;
+}
+
+
+
+
