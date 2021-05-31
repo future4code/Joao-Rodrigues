@@ -1,0 +1,162 @@
+/*RESET*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+/*ESTILOS GERAIS*/
+body{
+  background-color: #0E0E10;
+  color: white;
+}
+
+.tela-inteira {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+
+/*HEADER*/
+header {
+  background-color: #9147FF;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+}
+
+.barra-menu{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+}
+
+.barra-menu a{
+  color: white;
+  font-size: 1.125em;
+  font-weight: bold;
+}
+
+.barra-menu input{
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid  #464649;
+  outline: none;
+  color: #464649;
+}
+
+.buscar{
+  display: flex;
+  align-items: center;
+}
+
+main {
+  margin-top: 65px;
+  display: flex;
+}
+
+.menu-vertical {
+  flex: 1 0 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 10px;
+  background-color: #1F1F23;
+}
+
+.menu-vertical ul li{
+  margin: 10px 0 20px 0 ;
+}
+
+.painel-de-videos {
+  padding-left: 20px;
+  padding-top: 20px;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 24.8% 0.2%);
+  grid-template-rows: repeat(2, 270px 20px);
+}
+
+.media1 {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.media2 {
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+
+.media3 {
+  grid-column-start: 5;
+  grid-row-start: 1;
+}
+
+.media4 {
+  grid-column-start: 7;
+  grid-row-start: 1;
+}
+
+.media5 {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+.media6 {
+  grid-column-start: 3;
+  grid-row-start: 3;
+}
+
+.media7 {
+  grid-column-start: 5;
+  grid-row-start: 3;
+}
+
+.media8 {
+  grid-column-start: 7;
+  grid-row-start: 3;
+}
+
+
+.box-pagina-principal {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 1fr;
+  align-items: start;
+  justify-items: stretch;
+  margin: 0 5px;
+  border: 2px solid #1F1F23;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.box-pagina-principal h4{
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+footer {
+  background-color: #1F1F23;
+  text-align: center;
+  padding: 7px;
+  margin-top: 60px;
+}
+
+.box-pagina-principal > img {
+  width: 100%;
+  height: 200px;
+}
+
