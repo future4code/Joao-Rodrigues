@@ -45,24 +45,32 @@ const PostPhoto = styled.img`
   width: 100%;
 `
 
-// CODIGO DO COMPONENT
 class Post extends React.Component {
-  // Criaçao do obj state. todas as propriedades dele poderá sera 
-  // auterada em tempo real
   state = {
-    curtido: false,
+    curtido: true,
     numeroCurtidas: 0,
     comentando: false,
     numeroComentarios: 0
   }
 
-  // metodo do component post. Ao clicar em button curtir(coraçao) ele faz o 
-  // indicado dentro do metodo
   onClickCurtida = () => {
-    console.log('Curtiu!')
-  }
+    this.setState({
+      curtido: !this.state.curtido
+    })
 
-  // metodo que vai fazer a mudança de estado da propriedade comentado 
+    if(this.state.curtido){
+      this.setState({
+        numeroCurtidas: this.state.numeroCurtidas + 1
+      })
+    }else{
+      this.setState({
+        numeroCurtidas: this.state.numeroCurtidas - 1
+      })
+    }
+
+    console.log(this.state.curtido)
+  }
+ 
   onClickComentario = () => {
     this.setState({
       comentando: !this.state.comentando
@@ -87,9 +95,9 @@ class Post extends React.Component {
     // condicional que diz que se o estado da propriedade 'curtido' for true
     // vai renderizar um coraçao preto, se for false, vai renderizar um branco
     if(this.state.curtido) {
-      iconeCurtida = iconeCoracaoPreto
-    } else {
       iconeCurtida = iconeCoracaoBranco
+    } else {
+      iconeCurtida = iconeCoracaoPreto
     }
 
     // criaçao de uma variavel
