@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const IconContainer = styled.div`
 	display: flex;
+	margin-right: 10px;
 `
 const IconImage = styled.img`
 	margin-right: 5px;
@@ -10,8 +11,11 @@ const IconImage = styled.img`
 `
 
 export function IconeComContador(props) {
-	return <IconContainer>
-		<IconImage alt={'Icone'} src={props.icone} onClick={props.onClickIcone}/>
-		<p>{props.valorContador}</p>
-	</IconContainer>
+	return(
+		<IconContainer>
+			<IconImage alt={'Icone'} src={props.icone} onClick={props.onClickIcone}/>
+			<p>{props.valorContador}</p>
+		</IconContainer>
+	) 
+	
 }

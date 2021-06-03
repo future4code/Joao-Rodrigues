@@ -1,31 +1,31 @@
-// Seçao de imports
 import React from 'react'
 import styled from 'styled-components'
-
 import {IconeComContador} from '../IconeComContador/IconeComContador'
-
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
+import compartilhar from '../../img/compartilhar.svg'
+import bookMarkBlack from '../../img/bookMarkBlack.svg'
+import bookMarkWhite from '../../img/bookMarkWhite.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+import {SecaoCompartilhar} from '../SecaoCompartilhar/SecaoCompartilhar'
+import facebook from '../../img/facebook.svg'
+import instagram from '../../img/instagram.svg'
+import twitter from '../../img/twitter.svg'
 
-
-// SEÇAO DE ESTILIZAÇAO DO COMPONENT
-
-// estilizaçao da div pai de todas
 const PostContainer = styled.div`
   border: 1px solid gray;
   width: 300px;
   margin-bottom: 10px;
 `
-// estilizaçao da div responsavel pelo header(onde vai ficar a foto de perfil e o nome)
+
 const PostHeader = styled.div`
   height: 40px;
   display: flex;
   align-items: center;
   padding-left: 10px;
 `
-// estilizaçao da div responsavel pelo footer(onde vai ficar os botoes de like e coment)
+
 const PostFooter = styled.div`
   height: 40px;
   display: flex;
@@ -33,16 +33,19 @@ const PostFooter = styled.div`
   padding: 0 10px;
   justify-content: space-between;
 `
-// estilizaçao da img da foto de perfil
+
 const UserPhoto = styled.img`
   height: 30px;
   width: 30px;
   margin-right: 10px;
   border-radius: 50%;
 `
-// estilizaçao da img do post
 const PostPhoto = styled.img`
   width: 100%;
+`
+
+const GrupoIcones = styled.div`
+  display: flex;
 `
 
 class Post extends React.Component {
@@ -50,7 +53,9 @@ class Post extends React.Component {
     curtido: true,
     numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 0
+    numeroComentarios: 0,
+    marcado: true,
+    compartilhado: false
   }
 
   onClickCurtida = () => {
@@ -77,7 +82,6 @@ class Post extends React.Component {
     })
   }
 
-  // metodo que vai fazer com que, ao enviar o comentario, atualize o valor de comentarios
   aoEnviarComentario = () => {
     this.setState({
       comentando: false,
@@ -85,28 +89,45 @@ class Post extends React.Component {
     })
   }
 
-  // Parte do component que vai ser renderizada na tela
-  render() {
+  onClickBookMark = ()=>{
+    this.setState({
+      marcado: !this.state.marcado
+    })
+  }
 
-    // variavel que vai receber o icone de curtida. icone branco é pq nao foi curtido
-    // icone preto é pq foi curtido
+  onClickCompartilhar = ()=>{
+    this.setState({
+      compartilhado: !this.state.compartilhado
+    })
+  }
+
+  render() {
     let iconeCurtida
 
-    // condicional que diz que se o estado da propriedade 'curtido' for true
-    // vai renderizar um coraçao preto, se for false, vai renderizar um branco
     if(this.state.curtido) {
       iconeCurtida = iconeCoracaoBranco
     } else {
       iconeCurtida = iconeCoracaoPreto
     }
 
-    // criaçao de uma variavel
     let componenteComentario
 
-    // condicional que diz que se a propriedade 'comentado' for true,
-    // ele recebe o componente 'SecaoComentario'
     if(this.state.comentando) {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
+    }
+
+    let iconeBookMark
+
+    if(this.state.marcado) {
+      iconeBookMark = bookMarkWhite
+    } else {
+      iconeBookMark = bookMarkBlack
+    }
+
+    let componenteCompartilhar
+
+    if(this.state.compartilhado){
+      componenteCompartilhar = <SecaoCompartilhar/>
     }
 
     return( 
@@ -119,19 +140,32 @@ class Post extends React.Component {
         <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
 
         <PostFooter>
-          <IconeComContador
-            icone={iconeCurtida}
-            onClickIcone={this.onClickCurtida}
-            valorContador={this.state.numeroCurtidas}
-          />
+          <GrupoIcones>
+            <IconeComContador
+              icone={iconeCurtida}
+              onClickIcone={this.onClickCurtida}
+              valorContador={this.state.numeroCurtidas}
+            />
+
+            <IconeComContador
+              icone={iconeComentario}
+              onClickIcone={this.onClickComentario}
+              valorContador={this.state.numeroComentarios}
+            />
+
+            <IconeComContador
+              icone={compartilhar}
+              onClickIcone={this.onClickCompartilhar}
+            />
+          </GrupoIcones>
 
           <IconeComContador
-            icone={iconeComentario}
-            onClickIcone={this.onClickComentario}
-            valorContador={this.state.numeroComentarios}
+            icone={iconeBookMark}
+            onClickIcone={this.onClickBookMark}
           />
         </PostFooter>
         {componenteComentario}
+        {componenteCompartilhar}
       </PostContainer>
     )
   }
