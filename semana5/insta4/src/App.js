@@ -30,11 +30,11 @@ class App extends React.Component {
 
     const postsComponents = this.state.listaPosts.map((post, index)=>{
         return (
-            <Post key={index}>
-              {post.nomeUsuario} 
-              {post.fotoUsuario} 
-              {post.fotoPost}
-            </Post>
+            <Post key={index}
+              nomeUsuario={post.nomeUsuario} 
+              fotoUsuario={post.fotoUsuario} 
+              fotoPost={post.fotoPost}
+            />
         )
     }) 
 
