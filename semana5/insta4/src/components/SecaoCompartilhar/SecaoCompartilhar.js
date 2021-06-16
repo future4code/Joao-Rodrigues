@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import {IconeComContador} from '../IconeComContador/IconeComContador'
 import facebook from '../../img/facebook.svg'
 import instagram from '../../img/instagram.svg'
 import twitter from '../../img/twitter.svg'

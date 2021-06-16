@@ -9,9 +9,6 @@ import bookMarkBlack from '../../img/bookMarkBlack.svg'
 import bookMarkWhite from '../../img/bookMarkWhite.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
 import {SecaoCompartilhar} from '../SecaoCompartilhar/SecaoCompartilhar'
-import facebook from '../../img/facebook.svg'
-import instagram from '../../img/instagram.svg'
-import twitter from '../../img/twitter.svg'
 
 const PostContainer = styled.div`
   border: 1px solid gray;
