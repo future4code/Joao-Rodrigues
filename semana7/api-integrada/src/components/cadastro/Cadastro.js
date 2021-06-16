@@ -31,7 +31,9 @@ const Cadastro = () => {
     const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users'
 
     const headers = {
-        Authorization: 'joaopedro-lopes-molina'
+        headers:{
+            Authorization: "joaopedro-lopes-molina"
+        }
     }
 
     const criarUsuario = ()=> {
@@ -41,13 +43,15 @@ const Cadastro = () => {
         }
 
         axios.post(url, body, headers)
-        .then(()=>{
-            alert("Usuario(a) cadastrado(a) com sucesso!")
+        .then((res)=>{
+            alert(`Usuario(a) ${valueNome} cadastrado(a) com sucesso!`)
             setNome('')
             setEmail('')
         })
         .catch((err)=>{
             alert(err.response.data.message)
+            setNome('')
+            setEmail('')
         })
     }
 
@@ -55,7 +59,7 @@ const Cadastro = () => {
         <ContainerCadastro>
             <input placeholder='Seu nome' onChange={(e)=>setNome(e.target.value)} value={valueNome}/>
             <input placeholder='Seu email' onChange={(e)=>setEmail(e.target.value)} value={valueEmail}/>
-            <button onChange={criarUsuario}>Salvar</button>
+            <button onClick={criarUsuario}>Salvar</button>
         </ContainerCadastro>
     )
 }
