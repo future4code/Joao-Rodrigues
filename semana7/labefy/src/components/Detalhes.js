@@ -251,7 +251,7 @@ const Detalhes = () => {
                     />
 
                     <InputAddMusica
-                        placeholder='Id da musica'
+                        placeholder='Id da musica no youtube'
                         onChange={onChangeLink}
                         value={global.inputLink}
                         type='text'
