@@ -10,7 +10,7 @@ const LateralMenu = styled.div`
     padding: 30px 20px;
     max-width: 100%;
     width: 280px;
-    height: 86vh;
+    height: 100vh;
     color: white;
     box-shadow: 2px 0 3px rgba(0, 0, 0, 0.5);
 

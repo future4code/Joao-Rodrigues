@@ -3,6 +3,11 @@ import styled from 'styled-components'
 import axios from 'axios'
 import { GlobalContext } from './GlobalContext'
 import {RiDeleteBin6Fill} from 'react-icons/ri'
+import YouTube from 'react-youtube';
+
+var getYouTubeId = require('get-youtube-id')
+
+
 
 const ContainerDetalhes = styled.div`
     display: flex;
@@ -105,6 +110,7 @@ const Detalhes = () => {
     // const [inputArtista, setInputArtista] = React.useState('')
     // const [inputLink, setInputLink] = React.useState('')
     // const [click, setClick] = React.useState(true)
+    const [link, setLink] = React.useState('')
 
     const global = React.useContext(GlobalContext)
 
@@ -112,6 +118,15 @@ const Detalhes = () => {
     //     // localStorage.setItem('musicas', JSON.stringify(global.musicas))
     //     console.log(global.musicas)
     // },[click])
+
+    const opts = {
+        height: '260',
+        width: '480',
+        playerVars: {
+          // https://developers.google.com/youtube/player_parameters
+          autoplay: 1,
+        },
+      };
 
     const onChangeMusica = ((event)=>{
         global.setInputMusica(event.target.value)
@@ -189,11 +204,8 @@ const Detalhes = () => {
         }
     })
 
-    let link , nome
-
     const mostrarVideo = ((url, name)=>{
-        link = url
-        nome = name
+        setLink(url)
     })
 
     const listaDeMusicas = global.musicas.map(({id, name, artist, url})=>{
@@ -239,7 +251,7 @@ const Detalhes = () => {
                     />
 
                     <InputAddMusica
-                        placeholder='link da musica'
+                        placeholder='Id da musica'
                         onChange={onChangeLink}
                         value={global.inputLink}
                         type='text'
@@ -247,7 +259,7 @@ const Detalhes = () => {
                     <BotaoAddMusica onClick={adicionarMusica}>Adicionar musica</BotaoAddMusica>
                 </ContainerAddMusica>
             </ContainerDetalhes>
-
+            <YouTube videoId={link} opts={opts} />;
         </div>
     )
 }
