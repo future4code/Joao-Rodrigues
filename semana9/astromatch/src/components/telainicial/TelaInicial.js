@@ -44,7 +44,7 @@ const TelaInicial = () => {
         })
     })
 
-    const onClickMatch = ((idProfile, isMatch)=>{
+    const onClickMatch = ((idProfile, isMatch, name)=>{
         const body = {
             id: idProfile,
             choice: isMatch
@@ -52,14 +52,15 @@ const TelaInicial = () => {
 
         axios.post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/joaopedro/choose-person', body)
         .then((res)=>{
-            console.log(res)
+            if(res.data.isMatch){
+                alert(`${name} deu MATCH em voce!!!`)
+            }
         }).catch((err)=>{
             console.log(err.message)
         })
 
-        console.log(isMatch)
-
         global.setNext(global.next + 1)
+
     })
 
     console.log(profile)
@@ -90,8 +91,8 @@ const TelaInicial = () => {
                 age={profile.age}
                 bio={profile.bio}
                 photo={profile.photo}
-                onClick1={()=>onClickMatch(profile.id, !match)}
-                onClick2={()=>onClickMatch(profile.id, match)}
+                onClick1={()=>onClickMatch(profile.id, !match, profile.name)}
+                onClick2={()=>onClickMatch(profile.id, match, profile.name)}
             />
         </div>
     )
