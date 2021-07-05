@@ -1,6 +1,8 @@
 import React from "react";
-import HomePage from "./pages/homepage/HomePage";
 import { createGlobalStyle } from "styled-components";
+import HomePage from "./pages/homepage/HomePage";
+import ListTripsPage from './pages/listtripspage/ListTripsPage'
+
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -18,7 +20,8 @@ function App() {
   return (
     <div>
       <GlobalStyle/>
-      <HomePage/>
+      {/* <HomePage/> */}
+      <ListTripsPage/>
     </div>
   );
 }

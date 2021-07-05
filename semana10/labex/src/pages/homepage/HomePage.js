@@ -18,7 +18,7 @@ const HomePage = () => {
                 />
                 <Button
                     name='Area de Admin'
-                    color='#FD3E22'
+                    color='#FF301B'
                 />
             </div>
             

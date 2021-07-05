@@ -13,7 +13,7 @@ const ContainerMain = styled.div`
 
         h1{
             font-size: 2.5em;
-            color: #FD3E22;
+            color: #FF301B;
         }
     }
 
