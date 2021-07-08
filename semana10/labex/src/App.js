@@ -2,6 +2,11 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 import HomePage from "./pages/homepage/HomePage";
 import ListTripsPage from './pages/listtripspage/ListTripsPage'
+import AplicationForm from "./pages/applicationform/AplicationForm";
+import LoginPage from "./pages/loginpage/LoginPage";
+import AdminHomePage from "./pages/adminhomepage/AdminHomePage";
+import CreateTrip from "./pages/createtrip/CreateTrip";
+import { GlobalStorage } from "./components/globalcontext/GlobalContext";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -18,11 +23,15 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <div>
+    <GlobalStorage>
       <GlobalStyle/>
       {/* <HomePage/> */}
-      <ListTripsPage/>
-    </div>
+      {/* <ListTripsPage/> */}
+      {/* <AplicationForm/> */}
+      {/* <LoginPage/> */}
+      {/* <AdminHomePage/> */}
+      {/* <CreateTrip/> */}
+    </GlobalStorage>
   );
 }
 

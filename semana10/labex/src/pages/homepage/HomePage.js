@@ -14,11 +14,11 @@ const HomePage = () => {
             <div>
                 <Button
                     name='Ver Viagens'
-                    color='#0B3D92'
+                    color='#FF301B'
                 />
                 <Button
                     name='Area de Admin'
-                    color='#FF301B'
+                    color='#0B3D92'
                 />
             </div>
             
