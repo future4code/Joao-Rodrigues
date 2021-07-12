@@ -1,69 +1,216 @@
 import React from 'react'
 import axios from 'axios'
-import Form from '../../components/form/Form'
 import { GlobalContext } from '../../components/globalcontext/GlobalContext'
 import Footer from '../../components/footer/Footer'
-import {Title} from './styled'
+import {Title, ContainerForm} from './styled'
+import Button from '../../components/button/Button'
+import { useHistory } from 'react-router-dom'
+import useForm from '../../hooks/useForm'
+
+const countryList = [
+    'África do Sul', 
+    'Alemanha', 
+    'Argentina', 
+    'Australia', 
+    'Brasil', 
+    'Bélgica', 
+    'Bolívia',
+    'Camarões',
+    'Camboja', 
+    'Canadá', 
+    'Catar ',
+    'Chile',
+    'China', 
+    'Colômbia',
+    'Coreia do Sul',
+    'Cuba',
+    'Dinamarca',
+    'Egito',
+    'Equador',
+    'Espanha',
+    'EUA',
+    'Finlândia',
+    'França',
+    'Gana',
+    'Geórgia',
+    'Grécia', 
+    'Haiti',
+    'Holanda',
+    'India', 
+    'Inglaterra',
+    'Irã ',
+    'Iraque',
+    'Irlanda',
+    'Israel', 
+    'Itália',
+    'Jamaica',
+    'Japão',
+    'Jordânia',
+    'Kosovo',
+    'Kuwait',
+    'Líbano',
+    'Lituânia',
+    'Luxemburgo',
+    'Malásia',
+    'Marrocos',
+    'México',
+    'Moçambique',
+    'Mônaco',
+    'Mongólia',
+    'Nicarágua',
+    'Nigéria',
+    'Noruega',
+    'Nova Zelândia',
+    'Omã',
+    'País de Gales',
+    'Panamá',
+    'Paquistão',
+    'Paraguai',
+    'Peru',
+    'Polônia',
+    'Portugal',
+    'Quênia',
+    'Quirguistão',
+    'Reino Unido',
+    'República do Congo',
+    'República Dominicana',
+    'República Tcheca',
+    'Romênia',
+    'Russia',
+    'Salomão',
+    'San Marino',
+    'Senegal',
+    'Sérvia',
+    'Singapura ',
+    'Síria',
+    'Sudão',
+    'Suécia',
+    'Suíça',
+    'Tailândia',
+    'Taiwan',
+    'Timor-Leste', 
+    'Turquia',
+    'Ucrânia',
+    'Uganda',
+    'Uruguai',
+    'Uzbequistão',
+    'Vaticano',
+    'Venezuela',
+    'Vietnã ',
+    'Zâmbia',
+    'Zimbábue',
+]
 
 const AplicationForm = () => {
-    const [select, setSelect] = React.useState('')
-    const [inputName, setInputName] = React.useState('')
-    const [inputAge, setInputAge] = React.useState('')
-    const [inputProfession, setInputProfession] = React.useState('')
-    const [textArea, setTextArea] = React.useState('')
+    const {form, onChange, cleanFields} = useForm({
+        trip:'',
+        name:'',
+        age:'',
+        profession:'',
+        textArea:'',
+        country:'',
+    })
     const global = React.useContext(GlobalContext)
+    const history = useHistory()
 
-    const handleSubmit = (event)=>{
-        event.preventDefautl()
-    }
+    const onClickSend = ((event)=>{
+        event.preventDefault()
 
-    const onClickSend = (()=>{
         const body = {
-            name: select,
-            age: inputAge,
-            applicationText: textArea,
-            profession: inputProfession,
-            country:''
+            name:form.name,
+            age: form.age,
+            applicationText: form.textArea,
+            profession: form.profession,
+            country: form.country
         }
 
-        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/joaopedro-lopes-molina/trips/:id/apply', body)
+        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/joaopedro-lopes-molina/trips/${form.trip}/apply`, body)
         .then((res)=>{
-            console.log(res.data)
+            alert('Inscrição enviada com sucesso!')
         }).catch((err)=>{
+            alert('Algo deu errado!')
             console.log(err)
         })
 
-        setSelect('')
-        setInputName('')
-        setInputAge('')
-        setInputProfession('')
-        setTextArea('')
+        cleanFields()
     })
- 
 
     return (
         <div>
             <Title>Inscreva-se para uma viagem</Title>
-            <Form
-                onSubmit={handleSubmit}
-                valueSelect={select}
-                setValueSelect={setSelect}
-                options={global.tripsList}
+            <ContainerForm onSubmit={onClickSend}>
+                <select value={form.trip} onChange={onChange} name='trip' required>
+                    <option value='' disabled>Escolha uma viagem</option>
+                    {global.tripsList.map(({id, name})=>{
+                        return(
+                            <option key={id} value={id}>{name}</option>
+                        )
+                    })}
+                </select>
 
-                valueInputNome={inputName}
-                setValueInputNome={setInputName}
+                <input
+                    type='text'
+                    placeholder='Nome'
+                    name='name'
+                    value={form.name}
+                    onChange={onChange}
+                    pattern='^.{3,}'
+                    title='Deve ter no min 3 letras'
+                    required
+                />
 
-                valueInputAge={inputAge}
-                setValueInputAge={setInputAge}
+                <input
+                    type='number'
+                    placeholder='Idade'
+                    name='age'
+                    min='18'
+                    value={form.age}
+                    onChange={onChange}
+                    required
+                />
 
-                valueInputProfession={inputProfession}
-                setValueInputProfession={setInputProfession}
-                
-                valueTextArea={textArea}
-                setValueTextArea={setTextArea}
+                <input
+                    type='text'
+                    placeholder='Profissão'
+                    name='profession'
+                    value={form.profession}
+                    onChange={onChange}
+                    pattern='^.{10,}'
+                    title='Deve ter no min 10 letras'
+                    required
+                />
 
-                onClickSend={onClickSend}
-            />
+                <select value={form.country} onChange={onChange} name='country' required>
+                    <option value='' disabled>País de origem</option>
+                    {countryList.map((country)=>{
+                        return(
+                            <option key={country} value={country}>{country}</option>
+                        )
+                    })}
+                </select>
+
+                <textarea 
+                    placeholder='Texto de Candidatura'
+                    value={form.textArea}
+                    name='textArea' 
+                    onChange={onChange}
+                    pattern='^.{30,}'
+                    title='Deve ter no min 30 letras'
+                    required
+                />
+
+                <div>
+                    <Button
+                        onClick={()=>history.goBack()}
+                        name='Voltar'
+                        color='#0B3D92'
+                    />
+                    <Button
+                        name='Enviar'
+                        color='#FF301B'
+                    />
+                </div> 
+            </ContainerForm>
             <Footer/>
         </div>
     )

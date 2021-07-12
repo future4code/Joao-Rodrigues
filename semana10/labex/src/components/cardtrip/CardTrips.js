@@ -1,7 +1,7 @@
 import React from 'react'
 import {Card, ContainerInfo, Info} from './styled'
 
-const CardTrips = ({id, name, description, planet, durationInDays, date}) => {
+const CardTrips = ({name, description, planet, durationInDays, date}) => {
     return (
         <Card>
             <h3>{name}</h3>

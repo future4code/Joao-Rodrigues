@@ -2,50 +2,77 @@ import React from 'react'
 import Button from '../../components/button/Button'
 import axios from 'axios'
 import {Title, ContainerForm} from './styled'
+import { useHistory } from 'react-router-dom'
+import useForm from '../../hooks/useForm'
 
 const planetsList = ['Mercurio', 'Venus', 'Marte', 'Jupter', 'Saturno', 'Netuno', 'Urano', 'Plutao']
 
 const CreateTrip = () => {
-    const [valueName, setValueName] = React.useState('')
-    const [valuePlanet, setValuePlanet] = React.useState('')
-    const [valueDate, setValueDate] = React.useState('')
-    const [valueDescription, setValueDescription] = React.useState('')
-    const [valueDuration, setValueDuration] = React.useState('')
+    // const [valueName, setValueName] = React.useState('')
+    // const [valuePlanet, setValuePlanet] = React.useState('')
+    // const [valueDate, setValueDate] = React.useState('')
+    // const [valueDescription, setValueDescription] = React.useState('')
+    // const [valueDuration, setValueDuration] = React.useState('')
+    const {form, onChange, cleanFields} = useForm({
+        name:'',
+        planet:'', 
+        date:'',
+        description:'',
+        duration:''
+    })
+    const history = useHistory()
+    const token = localStorage.getItem('token')
 
-    const createTrip = (()=>{
+    React.useEffect(()=>{
+        if(token === null){
+            history.push('/loginpage')
+        }
+    },[])
+
+    const createTrip = ((event)=>{
+        event.preventDefault()
+
         const body ={
-            name: valueName,
-            planet: valuePlanet,
-            date: valueDate,
-            description: valueDescription,
-            durationInDays: valueDuration 
+            name: form.name,
+            planet: form.planet,
+            date: form.date,
+            description: form.description,
+            durationInDays: form.duration 
         }
 
         const headers = {
             headers: {
-                auth: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkNmbjZPd0YyOVU5TDJSYzV0UWo1IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1NzMxNDM4Njh9.mmOrfGKlXpE3pIDUZfS3xV5ZwttOI2Exmoci9Sdsxjs'
+                auth: token
             }
         }
 
         axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/joaopedro-lopes-molina/trips', body, headers)
         .then((res)=>{
             console.log(res)
+            alert('Viagem criada com sucesso!')
         }).catch((err)=>{
+            alert('Algo deu errado!')
             console.log(err)
         })
+
+        cleanFields()
     })
 
     return (
         <div>
             <Title>Criar Viagem</Title>
-            <ContainerForm onSubmit={(event)=>event.preventDefault()}>
+            <ContainerForm onSubmit={createTrip}>
                 <input
                     placeholder='Nome'
                     type='text'
-                    value={valueName}
-                    onChange={(event)=>setValueName(event.target.value)}
+                    name='name'
+                    value={form.name}
+                    onChange={onChange}
+                    pattern='^.{5,}'
+                    title='Nome deve ter no min 5 letras'
+                    required
                 />
-                <select value={valuePlanet} onChange={(event)=>setValuePlanet(event.target.value)}>
+                <select name='planet' value={form.planet} onChange={onChange} required>
                     <option value='' disabled>Selecione um planeta</option>
                     {planetsList.map((planet)=>{
                         return(
@@ -55,32 +82,40 @@ const CreateTrip = () => {
                 </select>
                 <input
                     type='date'
-                    value={valueDate}
-                    onChange={(event)=>setValueDate(event.target.value)}
+                    name='date'
+                    value={form.date}
+                    onChange={onChange}
+                    required
                 />
                 <input
                     placeholder='Descriçao'
                     type='text'
-                    value={valueDescription}
-                    onChange={(event)=>setValueDescription(event.target.value)}
+                    name='description'
+                    value={form.description}
+                    onChange={onChange}
+                    pattern='^.{30,}'
+                    title='Deve ter no min 30 letras'
+                    required
                 />
                 <input
                     placeholder='Duração em dias'
                     type='number'
+                    name='duration'
                     min='50'
-                    value={valueDuration}
-                    onChange={(event)=>setValueDuration(event.target.value)}
+                    value={form.duration}
+                    onChange={onChange}
+                    required
                 />
 
                 <div>
                     <Button
+                        onClick={()=>history.goBack()}
                         name='Voltar'
                         color='#0B3D92'
                     />
                     <Button
                         name='Criar'
                         color='#FF301B'
-                        onClick={()=>createTrip()}
                     />
                 </div>
             </ContainerForm>

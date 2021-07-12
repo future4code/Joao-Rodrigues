@@ -4,28 +4,47 @@ import axios from 'axios'
 import { GlobalContext } from '../../components/globalcontext/GlobalContext'
 import {FaTrashAlt} from 'react-icons/fa'
 import {ContainerAdmin, ContainerBtn, Title, ContainerTrip, TrashIcon} from './styled'
+import { useHistory } from 'react-router-dom'
+
 
 
 const AdminHomePage = () => {
     const global = useContext(GlobalContext)
+    const history = useHistory()
+
+    React.useEffect(()=>{
+        const token = localStorage.getItem('token')
+        if(token === null){    
+            console.log('Nao esta logado')
+            history.push('/loginpage')
+        }
+    },[])
 
     const deleteTrip = ((id)=>{
-        const headers = {
+        const token = localStorage.getItem('token')
+
+        const header = {
             headers: {
-                auth: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkNmbjZPd0YyOVU5TDJSYzV0UWo1IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1NzMxNDM4Njh9.mmOrfGKlXpE3pIDUZfS3xV5ZwttOI2Exmoci9Sdsxjs'
+                auth: token
             }
         }
 
-        axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/joaopedro-lopes-molina/trips/${id}`, headers)
+        axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/joaopedro-lopes-molina/trips/${id}`, header)
         .then((res)=>{
             console.log(res)
+            alert('Excluido com sucesso!')
         }).catch((err)=>{
             console.log(err)
         })
     })
 
-    const showDetails = (()=>{
-        
+    const logout = (()=>{
+        localStorage.removeItem('token')
+        history.push('/loginpage')
+    })
+
+    const showDetails = ((id)=>{
+        history.push(`/tripdetailspage/${id}`)
     })
 
     return (
@@ -33,30 +52,32 @@ const AdminHomePage = () => {
             <Title>Painel Administrativo</Title>
             <ContainerBtn>
                 <Button
+                    onClick={()=>history.push('/')}
                     name='Voltar'
                     color='#0B3D92'
                 />
                 <Button
+                    onClick={()=>history.push('/createtrip')}
                     name='Criar viagem'
                     color='#FF301B'
                 />
                 <Button
+                    onClick={logout}
                     name='Logout'
                     color='#0B3D92'
                 />
             </ContainerBtn>
 
             <div>
-                {global.tripsList.map(({id, name})=>{
+                {global.tripsList.length? global.tripsList.map(({id, name})=>{
                     return(
-                        <ContainerTrip key={id} onClick={showDetails}>
-                            <h4>{name}</h4>
-                            <TrashIcon onClick={()=>deleteTrip(id)}><FaTrashAlt/></TrashIcon>
+                        <ContainerTrip key={id} >
+                            <h4 onClick={()=>showDetails(id)}>{name}</h4>
+                            <TrashIcon onClick={()=>deleteTrip(id)}><FaTrashAlt/></TrashIcon>    
                         </ContainerTrip>
                     )
-                })}
-            </div>
-            
+                }):<h3>Nenhuma viagem disponível</h3>}
+            </div>            
         </ContainerAdmin>
     )
 }

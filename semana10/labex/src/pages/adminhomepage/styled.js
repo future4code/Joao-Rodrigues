@@ -4,6 +4,10 @@ const ContainerAdmin = styled.div`
     max-width: 100%;
     width: 400px;
     margin: 0 auto;
+    
+    h3{
+        text-align: center;
+    }
 `
 
 const ContainerBtn = styled.div`
@@ -23,24 +27,27 @@ const ContainerTrip = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px ;
     margin-bottom: 15px;
     border-radius: 5px;
     box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: .3s;
+    
+    h4{
+        padding: 15px 62px 15px 15px;
+    }
 
     :hover{
         background-color: #DCDBD7;
     }
-
 `
 
 const TrashIcon = styled.span`
     font-size: 1em;
     color: #0B3D92;
-    padding: 2px;
+    padding: 15px;
     transition: .2s;
+    pointer-events: auto;
 
     :hover{
         color: #FF301B;
