@@ -66,6 +66,7 @@ const LoginPage = () => {
                     <Button
                         name='Entrar'
                         color='#FF301B'
+                        type='submit'
                     />
                 </div>
             </ContainerFormLogin>

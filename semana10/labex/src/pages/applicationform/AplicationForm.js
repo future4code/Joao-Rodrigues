@@ -103,15 +103,17 @@ const countryList = [
 
 const AplicationForm = () => {
     const {form, onChange, cleanFields} = useForm({
-        trip:'',
+        trip: '',
         name:'',
-        age:'',
+        age: 0,
         profession:'',
         textArea:'',
         country:'',
     })
     const global = React.useContext(GlobalContext)
     const history = useHistory()
+
+    console.log(form)
 
     const onClickSend = ((event)=>{
         event.preventDefault()
@@ -204,10 +206,12 @@ const AplicationForm = () => {
                         onClick={()=>history.goBack()}
                         name='Voltar'
                         color='#0B3D92'
+                        type='submit'
                     />
                     <Button
                         name='Enviar'
                         color='#FF301B'
+                        type='submit'
                     />
                 </div> 
             </ContainerForm>
