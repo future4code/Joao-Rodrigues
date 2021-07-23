@@ -14,15 +14,24 @@ const ContainerPostCard = styled.div`
     :hover{
         border: 1px solid #9147FF;
     }
+
+    h3{
+        color: #65676B;
+    }
     
+    span{
+        font-size: 1.125em;
+    }
+
 `
 
 const ContainerName = styled.div`
+    text-align: center;
     margin-bottom: 10px;
 `
 
-const Name = styled.h3`
-    color: #65676B;
+const ContainerTitle = styled.div`
+    margin-bottom: 10px;
 `
 
 const ContainerText = styled.div`
@@ -46,10 +55,9 @@ const ContainerVote = styled.div`
     display: flex;
 
     span{
-        font-size: 1.125em;
         cursor: pointer;
 
-        :active{
+        :hover{
             color: #9147FF;
         }
     }
@@ -62,14 +70,6 @@ const ContainerVote = styled.div`
 const ContainerComment = styled.div`
     display: flex;
     align-items: center;
-    span{
-        font-size: 1.125em;
-        cursor: pointer;
-
-        :active{
-            color: #9147FF;
-        }
-    }
 
     p{
         margin: 0 0 8px 5px;
@@ -77,11 +77,11 @@ const ContainerComment = styled.div`
 `
 export {
     ContainerPostCard, 
-    ContainerName, 
-    Name, 
+    ContainerTitle, 
     ContainerText, 
     ContainerTextPost, 
     ContainerIcons, 
     ContainerVote, 
-    ContainerComment
+    ContainerComment,
+    ContainerName
 }

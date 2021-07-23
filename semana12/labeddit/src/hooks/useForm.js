@@ -1,11 +1,19 @@
 import React from 'react'
 
-const UseForm = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+const useForm = (initialState) => {
+    const [form, setForm] = React.useState(initialState)
+
+    const onChange = ((event)=>{
+        setForm({...form, [event.target.name]: event.target.value})
+        console.log(event.target.value)
+    })
+
+    const cleanFields = ()=>{
+        setForm(initialState)
+    }
+
+    return {form, onChange, cleanFields}
 }
 
-export default UseForm
+export default useForm
+

@@ -28,7 +28,7 @@ const Form = styled.form`
         border: 1px solid gray;
         width: 100%;
         font-size: 1.125em;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
 
         :focus{
             border: 1px solid #9147FF;

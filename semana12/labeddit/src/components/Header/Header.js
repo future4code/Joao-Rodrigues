@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
 import {ContainerHeader, ContainerContent, LogoutBtn, ContainerSeacrch} from './styled'
 import {BiSearchAlt2} from 'react-icons/bi'
 
-const Header = () => {
+const Header = ({onClick}) => {
     return (
         <ContainerHeader>
             <ContainerContent>
@@ -20,7 +19,7 @@ const Header = () => {
                     <button type='submit'><BiSearchAlt2/></button>
                 </ContainerSeacrch>
 
-                <LogoutBtn>Logout</LogoutBtn>
+                <LogoutBtn onClick={onClick}>Logout</LogoutBtn>
             </ContainerContent>
         </ContainerHeader>
     )

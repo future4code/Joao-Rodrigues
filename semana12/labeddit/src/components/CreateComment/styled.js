@@ -1,41 +1,17 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
-const ContainerCreatePost = styled.div`
+const ContainerCreateComment = styled.div`
     width: 100%;
     box-shadow: 2px 2px 2px rgba(145, 71, 255, 0.15);
     border-radius: 3px;
     border: 1px solid #E5E5E5;
     padding: 20px;
-    padding-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     background-color: #F9F9Fa;
     color: #65676B;
 `
 
-const ContainerTitle = styled.div`
-    padding-bottom: 10px;
-
-    h3{
-        text-align: center;
-    }
-`
-
-const ContainerForm = styled.form`
-    input{
-        width: 100%;
-        margin-bottom: 10px;
-        padding: 6px 12px;
-        border-radius: 4px;
-        border: 1px solid #65676B;
-
-        ::placeholder{
-            text-align: center;
-        }
-
-        :focus{
-            border: 1px solid #9147FF;
-        }
-    }
+const ContainerForm =styled.form`
 
     textarea{
         width: 100%;
@@ -44,9 +20,8 @@ const ContainerForm = styled.form`
         border: 1px solid #65676B;
         border-radius: 4px;
         padding: 6px 12px;
-        font-size: 1em;
+        font-size: 1.125em;
         transition: .2s;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
         :focus{
             border: 1px solid #9147FF;
@@ -75,4 +50,4 @@ const ContainerForm = styled.form`
     }
 `
 
-export{ContainerCreatePost, ContainerTitle, ContainerForm}
+export {ContainerCreateComment, ContainerForm}

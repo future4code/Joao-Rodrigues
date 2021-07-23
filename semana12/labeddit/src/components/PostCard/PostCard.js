@@ -1,44 +1,56 @@
 import React from 'react'
 import {
     ContainerPostCard, 
-    ContainerName, 
-    Name, 
+    ContainerTitle, 
     ContainerText, 
     ContainerTextPost, 
     ContainerIcons, 
     ContainerVote, 
-    ContainerComment
+    ContainerComment,
+    ContainerName
 } from './styled'
 import {BiUpvote, BiDownvote, BiComment} from 'react-icons/bi'
+import styled from 'styled-components'
 
-const PostCard = () => {
+const VoteUp = styled.span`
+    color: ${(color)=>color};
+    
+`
+
+const VoteDown = styled.span`
+    color: ${(color)=>color}; 
+`
+
+
+const PostCard = ({username, title, body, commentCount, voteSum, onClick, color, onClickVote}) => {
     return (
         <ContainerPostCard>
-            <ContainerText>
+            <ContainerText onClick={onClick}>
                 <ContainerName>
-                    <Name>Fulano</Name>
-                </ContainerName>
+                    <h3>{username}</h3>
+                </ContainerName>    
+
+                <ContainerTitle>
+                    <h3>{title}</h3>
+                </ContainerTitle>
 
                 <ContainerTextPost>
                     <p>
-                        Mussum Ipsum, cacilds vidis litro abertis. A ordem dos tratores 
-                        não altera o pão duris. Manduma pindureta quium dia nois paga. 
-                        Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, 
-                        vitae iaculis nisl. Mé faiz elementum girarzis, nisi eros vermeio.
+                        {body}
                     </p>
                 </ContainerTextPost>
             </ContainerText>
             
             <ContainerIcons>
                 <ContainerVote>
-                    <span><BiUpvote/></span>
-                    <p>12</p>
-                    <span><BiDownvote/></span>
+                    <VoteUp color={color} onClick={onClickVote}><BiUpvote/></VoteUp>
+                    <p>{voteSum ? voteSum:'0'}</p>
+                    <VoteDown color={color} onClick={onClickVote}><BiDownvote/></VoteDown>
                 </ContainerVote>
                 
                 <ContainerComment>
                     <span><BiComment/></span>
-                    <p>39</p>
+                    <p>{commentCount ? commentCount:'0'}</p>
                 </ContainerComment>                
             </ContainerIcons>
         </ContainerPostCard>

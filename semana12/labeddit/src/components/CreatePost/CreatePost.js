@@ -1,21 +1,31 @@
 import React from 'react'
-import styled from 'styled-components'
 import {ContainerCreatePost, ContainerTitle, ContainerForm} from './styled'
 
-
-const CreatePost = () => {
+const CreatePost = ({valueTitle, onChangeTitle, valueBody, onChangeBody, onClick}) => {
     return (
         <ContainerCreatePost>
             <ContainerTitle>
                 <h3>Criar Post</h3>
             </ContainerTitle>
             
-            <ContainerForm>
-                <textarea
-                    placeholder='Texto do seu post aqui'
+            <ContainerForm onSubmit={(event)=>event.preventDefault()}>
+                <input
+                    type='text'
+                    name='title'
+                    placeholder='Titulo'
+                    value={valueTitle}
+                    onChange={onChangeTitle}
+                    required
                 />
 
-                <button type='submit'>Postar</button>
+                <textarea
+                    placeholder='Texto do seu post'
+                    name='body'
+                    value={valueBody}
+                    onChange={onChangeBody}
+                />
+
+                <button onClick={onClick}>Postar</button>
             </ContainerForm>
         </ContainerCreatePost>
     )
