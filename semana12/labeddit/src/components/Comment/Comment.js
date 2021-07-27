@@ -1,28 +1,28 @@
 import React from 'react'
 import {ContainerComment, ContainerTop, ContainerVote} from './styled'
-import {BiUpvote, BiDownvote, BiComment} from 'react-icons/bi'
+import {BiComment} from 'react-icons/bi'
+import Vote from '../Vote/Vote'
 
-const Comment = () => {
+const Comment = ({comment, voteComment}) => {
     return (
         <ContainerComment>
             <ContainerTop>
-                <h3>Fulano</h3>
+                <h3>{comment.username}</h3>
                 <span><BiComment/></span>
             </ContainerTop>
 
             <div>
                 <p>
-                    Mussum Ipsum, cacilds vidis litro abertis. A ordem dos tratores 
-                    não altera o pão duris. Manduma pindureta quium dia nois paga. 
-                    Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, 
-                    vitae iaculis nisl. Mé faiz elementum girarzis, nisi eros vermeio.
+                    {comment.body}
                 </p>
             </div>
 
             <ContainerVote>
-                <span><BiUpvote/></span>
-                <p>12</p>
-                <span><BiDownvote/></span>
+                <Vote
+                    voteSum={comment.voteSum}
+                    onClickVoteUp={()=>voteComment(comment.id, 1, comment.userVote, 'comments')}
+                    onClickVoteDown={()=>voteComment(comment.id, -1, comment.userVote, 'comments')}
+                />
             </ContainerVote>
             
         </ContainerComment>

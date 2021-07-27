@@ -5,7 +5,6 @@ const useForm = (initialState) => {
 
     const onChange = ((event)=>{
         setForm({...form, [event.target.name]: event.target.value})
-        console.log(event.target.value)
     })
 
     const cleanFields = ()=>{

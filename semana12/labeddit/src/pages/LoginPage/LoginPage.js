@@ -4,11 +4,12 @@ import Button from '../../components/Button/Button'
 import { Container, Form } from '../../Styles/styledForm/styledForm'
 import { ContainerBtn } from './styled'
 import axios from 'axios'
-import {urlBase} from '../../constants/Constants'
+import {urlBase} from '../../constants/urls'
 import useForm from '../../hooks/useForm'
-
+import { useUnprotectedPage } from '../../hooks/useUnprotectedPage'
 
 const LoginPage = () => {
+    useUnprotectedPage()
     const {form, onChange, cleanFields} = useForm({
         email:'',
         password:'',
@@ -30,7 +31,7 @@ const LoginPage = () => {
             history.push('/')
         }).catch((err)=>{
             console.log(err)
-            alert('Email ou senha incorretos')
+            alert('Erro! Algum problema com email ou senha.')
             cleanFields()
         })
 

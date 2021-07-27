@@ -1,12 +1,15 @@
 import React from 'react'
 import {ContainerCreateComment, ContainerForm} from './styled'
 
-const CreateComment = () => {
+const CreateComment = ({onSubmit, value, onChange}) => {
     return (
         <ContainerCreateComment>            
-            <ContainerForm>
+            <ContainerForm onSubmit={onSubmit}>
                 <textarea
                     placeholder='Texto do seu comentario'
+                    name='body'
+                    value={value}
+                    onChange={onChange}
                 />
 
                 <button type='submit'>Comentar</button>

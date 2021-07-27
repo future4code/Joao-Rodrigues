@@ -21,7 +21,7 @@ const Router = () => {
                     <SignupPage/>
                 </Route>
                 
-                <Route exact path={'/post'}>
+                <Route exact path={'/post/:id'}>
                     <PostPage/>
                 </Route>
                 

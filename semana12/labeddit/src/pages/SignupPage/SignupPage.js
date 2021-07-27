@@ -2,12 +2,14 @@ import React from 'react'
 import Button from '../../components/Button/Button'
 import { Container, Form } from '../../Styles/styledForm/styledForm'
 import axios from 'axios'
-import {urlBase} from '../../constants/Constants'
+import {urlBase} from '../../constants/urls'
 import useForm from '../../hooks/useForm'
 import { useHistory } from 'react-router'
+import { useUnprotectedPage } from '../../hooks/useUnprotectedPage'
 
 
 const SignupPage = () => {
+    useUnprotectedPage()
     const {form, onChange} = useForm({
         username:'',
         email:'',
@@ -30,6 +32,7 @@ const SignupPage = () => {
             history.push('/')
         })
         .catch((err)=>{
+            alert('Email ja cadastrado ou senha n~ao contem o minimo de caracteres')
             console.log(err)
         })
     })

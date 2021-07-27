@@ -1,7 +1,6 @@
 import React from "react";
 import Router from "./route/Router";
 import { createGlobalStyle } from "styled-components";
-import { GlobalStorage } from "./globalContext/GlobalContext";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -30,9 +29,7 @@ const App = () => {
   return (
     <div>
       <GlobalStyle/>
-      <GlobalStorage>
         <Router/>
-      </GlobalStorage>
     </div>
   );
 }

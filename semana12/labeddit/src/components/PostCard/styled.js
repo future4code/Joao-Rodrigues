@@ -20,7 +20,12 @@ const ContainerPostCard = styled.div`
     }
     
     span{
-        font-size: 1.125em;
+        cursor: pointer;
+        transition: 0.2s;
+
+        :hover{
+            color: #9147FF;
+        }
     }
 
 `
@@ -51,22 +56,6 @@ const ContainerIcons =styled.div`
     padding-top: 10px;
 `
 
-const ContainerVote = styled.div`
-    display: flex;
-
-    span{
-        cursor: pointer;
-
-        :hover{
-            color: #9147FF;
-        }
-    }
-
-    p{
-        margin: 0 3px 4px 3px;
-    }
-`
-
 const ContainerComment = styled.div`
     display: flex;
     align-items: center;
@@ -81,7 +70,6 @@ export {
     ContainerText, 
     ContainerTextPost, 
     ContainerIcons, 
-    ContainerVote, 
     ContainerComment,
     ContainerName
 }

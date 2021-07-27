@@ -30,14 +30,15 @@ const ContainerVote = styled.div`
     span{
         font-size: 1.125em;
         cursor: pointer;
+        transition: 0.2s;
 
-        :active{
+        :hover{
             color: #9147FF;
         }
     }
 
     p{
-        margin: 0 3px 4px 3px;
+        margin: 0 4px 5px 4px;
     }
 `
 

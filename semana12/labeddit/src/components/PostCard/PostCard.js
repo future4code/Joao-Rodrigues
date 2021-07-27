@@ -5,52 +5,50 @@ import {
     ContainerText, 
     ContainerTextPost, 
     ContainerIcons, 
-    ContainerVote, 
     ContainerComment,
     ContainerName
 } from './styled'
-import {BiUpvote, BiDownvote, BiComment} from 'react-icons/bi'
-import styled from 'styled-components'
+import {BiComment} from 'react-icons/bi'
+import Vote from '../Vote/Vote'
+import { useHistory } from 'react-router'
 
-const VoteUp = styled.span`
-    color: ${(color)=>color};
-    
-`
+const PostCard = ({post, votePost}) => {   
+    const history = useHistory()
 
-const VoteDown = styled.span`
-    color: ${(color)=>color}; 
-`
+    const goToPost = () =>{
+        history.push(`/post/${post.id}`)
+    } 
 
-
-const PostCard = ({username, title, body, commentCount, voteSum, onClick, color, onClickVote}) => {
     return (
         <ContainerPostCard>
-            <ContainerText onClick={onClick}>
+            <ContainerText onClick={goToPost}>
                 <ContainerName>
-                    <h3>{username}</h3>
+                    <h3>{post.username}</h3>
                 </ContainerName>    
 
                 <ContainerTitle>
-                    <h3>{title}</h3>
+                    <h3>{post.title}</h3>
                 </ContainerTitle>
 
                 <ContainerTextPost>
                     <p>
-                        {body}
+                        {post.body}
                     </p>
                 </ContainerTextPost>
             </ContainerText>
             
             <ContainerIcons>
-                <ContainerVote>
-                    <VoteUp color={color} onClick={onClickVote}><BiUpvote/></VoteUp>
-                    <p>{voteSum ? voteSum:'0'}</p>
-                    <VoteDown color={color} onClick={onClickVote}><BiDownvote/></VoteDown>
-                </ContainerVote>
+                <div>
+                    <Vote
+                        voteSum={post.voteSum}
+                        onClickVoteUp={()=>votePost(post.id, 1, post.userVote)}
+                        onClickVoteDown={()=>votePost(post.id, -1, post.userVote)}
+                    />
+                </div>
                 
                 <ContainerComment>
-                    <span><BiComment/></span>
-                    <p>{commentCount ? commentCount:'0'}</p>
+                    <span onClick={goToPost}><BiComment/></span>
+                    <p>{post.commentCount ? post.commentCount:'0'}</p>
                 </ContainerComment>                
             </ContainerIcons>
         </ContainerPostCard>

@@ -22,6 +22,7 @@ const ContainerForm =styled.form`
         padding: 6px 12px;
         font-size: 1.125em;
         transition: .2s;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
         :focus{
             border: 1px solid #9147FF;
