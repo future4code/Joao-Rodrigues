@@ -15,6 +15,10 @@ const TripDetailsPage = () => {
     const {id} = useParams()
 
     React.useEffect(()=>{
+        getDetails()
+    },[])
+
+    const getDetails = () => {
         const token = localStorage.getItem('token')
 
         if(token === null){
@@ -36,7 +40,7 @@ const TripDetailsPage = () => {
                 console.log(err)
             })
         }
-    },[details])
+    }
 
     const onClickApproved = ((idCadidate, approved)=>{
         const token = localStorage.getItem('token')
@@ -64,8 +68,9 @@ const TripDetailsPage = () => {
             alert('Ocorreu um erro')
             console.log(err)
         })
-    })
 
+        getDetails()
+    })
 
     return (
         <ContainerMain>
@@ -93,7 +98,7 @@ const TripDetailsPage = () => {
                     </li>
                 </ul>
             </ConatinerInfo>
-
+           
             <ContainerBtn>
                 <Button
                     onClick={()=>history.goBack()}
