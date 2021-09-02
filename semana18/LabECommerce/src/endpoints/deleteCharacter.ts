@@ -1,21 +1,21 @@
-import { Request, Response } from "express";
-import connection from "../connection";
+// import { Request, Response } from "express";
+// import connection from "../connection";
 
-export default async function deleteCharacter(
-   req: Request,
-   res: Response
-): Promise<void> {
-   try {
+// export default async function deleteCharacter(
+//    req: Request,
+//    res: Response
+// ): Promise<void> {
+//    try {
 
-      const { id } = req.params
+//       const { id } = req.params
 
-      await connection("character")
-         .delete()
-         .where({ id })
+//       await connection("character")
+//          .delete()
+//          .where({ id })
 
-      res.status(200).end()
+//       res.status(200).end()
       
-   } catch (error) {
-      res.status(500).end()
-   }
-}
+//    } catch (error) {
+//       res.status(500).end()
+//    }
+// }
