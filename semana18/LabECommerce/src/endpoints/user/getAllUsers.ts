@@ -7,7 +7,7 @@ const getAllUsers = async(req: Request, res: Response):Promise<void> =>{
     let statusCode = 400    
     try {
         const newUserDatabase = new UserDatabase()
-        const usersDb: UserDb[] = await newUserDatabase.getAll()
+        const usersDb = await newUserDatabase.getAll()
         
         if(!usersDb){
             statusCode = 404
