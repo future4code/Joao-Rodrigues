@@ -1,0 +1,16 @@
+{
+  "name": "exercicos-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ex1": "clear && node ./exercicios/exercicio1.js",
+    "ex2": "clear && node ./exercicios/exercicio2.js",
+    "ex3": "clear && node ./exercicios/exercicio3.js",
+    "ex4": "clear && node ./exercicios/exercicio4.js",
+    "ex5": "clear && node ./exercicios/exercicio5.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
