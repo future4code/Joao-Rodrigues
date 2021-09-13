@@ -9,24 +9,20 @@ export default async function createUser(
    res: Response
 ): Promise<void> {
    try {
-
       const { email, password } = req.body
 
       if (!email || !password) {
          res.statusCode = 422
-         console.log('apssou por aqui 1')
          throw new Error("Preencha os campos 'email' e 'password'")
       }
 
       if(!email.include('@')){
          res.statusCode = 406
-         console.log('apssou por aqui 2')
          throw new Error("Campo de email deve conter '@'");
       }
 
       if (password.length < 6) {
          res.statusCode = 422
-         console.log('apssou por aqui 3')
          throw new Error("Senha deve ter no mínimo 6 caracteres")
       }
 
@@ -45,7 +41,7 @@ export default async function createUser(
       const newUser: user = { id, email, password }
 
       await connection('usuarios')
-         .insert(newUser)
+      .insert(newUser)
 
       const token:string = new Authenticator().generateToken({id})
 

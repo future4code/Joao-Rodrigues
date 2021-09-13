@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import {FaHeart, FaHeartBroken} from 'react-icons/fa'
 
 const Card = styled.div`
-    max-width: 25vw;
-    width: 100%;
+    max-width: 340px;
+    /* width: 100%; */
     margin: 0 auto;
     box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -13,28 +13,33 @@ const Card = styled.div`
     :hover{
         box-shadow: 0 8px 16px 2px rgba(0,0,0,0.2)
     }
+
+    /* @media(max-width: 768px){
+        max-width: 25vw;
+    }
+
+    @media(max-width: 420px){
+        max-width: 25vw;
+    } */
 `
 
 const ContainerImg = styled.div`
     max-width: 100%;
     height: 350px;
-    display: inline-block;
-    position: relative;
-
-    img{
-        max-width: 100%;
-        border-radius: 5px 5px 0 0;
-    }
+    background-image: url(${({url})=>url});
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    align-items: flex-end;
 `
 
 const ContainerDescription = styled.div`
-    position: absolute;
-    bottom: 30px;
-    left: 20px;
-
-    p{
-        font-size: 1em;
-    }
+    width: 100%;
+    padding: 10px 15px;
+    height: 110px;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
 `
 
 const ContainerIcon = styled.div`
@@ -46,7 +51,7 @@ const ContainerIcon = styled.div`
 const IconButton = styled.span`
     color: #d63031;
     font-size: 2.25em;
-    margin: 10px 20px;
+    margin: 10px 30px;
     cursor: pointer;
     transition: 0.3s;
 
@@ -56,21 +61,19 @@ const IconButton = styled.span`
 
 `
 
-const CardPerfil = () => {
+const CardPerfil = ({id, age, name, bio, photo, onClick1, onClick2}) => {
     return (
-        <Card>
-            <ContainerImg>
-                <img src='https://midia.gruposinos.com.br/_midias/jpg/2021/03/09/arz_21_in_campanha_instagram2-19500888.jpg' 
-                alt='imagem do perfil'/>
+        <Card key={id}>
+            <ContainerImg url={photo}>
                 <ContainerDescription>
-                    <h3>Bruna Marquezine</h3>
-                    <p>26 anos, atriz, alta, bonita, magra</p>
+                    <h3>{name}, <span>{age} anos</span></h3>
+                    <p>{bio}</p>
                 </ContainerDescription>
             </ContainerImg>
             
             <ContainerIcon>
-                <IconButton><FaHeartBroken/></IconButton>
-                <IconButton><FaHeart/></IconButton>
+                <IconButton onClick={onClick1}><FaHeartBroken/></IconButton>
+                <IconButton onClick={onClick2}><FaHeart/></IconButton>
             </ContainerIcon>
         </Card>
     )

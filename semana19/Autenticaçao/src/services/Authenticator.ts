@@ -21,7 +21,6 @@ export class Authenticator {
       try {
 
          const tokenData = verify(token, this.jwtKey) as authenticationData
-
          return {
             id: tokenData.id
          }

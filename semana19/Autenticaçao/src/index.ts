@@ -6,3 +6,4 @@ import { login } from "./endpoints/login"
 app.post('/user/signup', createUser)
 app.post('/user/login', login)
 app.put('/user', editUser)
+
