@@ -9,12 +9,16 @@ export default async function createUser(
    res: Response
 ): Promise<void> {
    try {
+      const { email, password } = req.body
 
-      const { name, nickname, email, password } = req.body
-
-      if (!name || !nickname || !email ||!password) {
+      if (!email || !password) {
          res.statusCode = 422
-         throw new Error("Preencha os campos 'name', 'nickname', 'password' e 'email'")
+         throw new Error("Preencha os campos 'email' e 'password'")
+      }
+
+      if(!email.include('@')){
+         res.statusCode = 406
+         throw new Error("Campo de email deve conter '@'");
       }
 
       if (password.length < 6) {
@@ -22,20 +26,22 @@ export default async function createUser(
          throw new Error("Senha deve ter no mínimo 6 caracteres")
       }
 
-      const [user] = await connection('to_do_list_users')
+      //Busca o usuario pelo email e caso ache, nao permite add o email vindo do body
+      const [user] = await connection('usuarios')
          .where({ email })
 
       if (user) {
          res.statusCode = 409
          throw new Error('Email já cadastrado')
       }
-
+      //
+      
       const id: string = new IdGenerator().generateId()
 
-      const newUser: user = { id, name, nickname, email, password }
+      const newUser: user = { id, email, password }
 
-      await connection('to_do_list_users')
-         .insert(newUser)
+      await connection('usuarios')
+      .insert(newUser)
 
       const token:string = new Authenticator().generateToken({id})
 

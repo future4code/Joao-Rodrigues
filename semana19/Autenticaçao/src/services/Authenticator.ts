@@ -6,26 +6,21 @@ config()
 
 export class Authenticator {
 
-   private jwtKey = "segredo guardado com pouca segurança"
+   private jwtKey =  process.env.JWT_KEY
 
-   public generateToken = (
-      payload: authenticationData
-   ): string => {
+   public generateToken = (payload: authenticationData): string => {
       return sign(
          payload,
-         process.env.JWT_KEY,
+         this.jwtKey,
          { expiresIn: "1d" }
       )
    }
 
-   public getTokenData = (
-      token: string
-   ): authenticationData | null => {
+   public getTokenData = ( token: string ): authenticationData | null => {
 
       try {
 
-         const tokenData = verify(token, process.env.JWT_KEY) as authenticationData
-
+         const tokenData = verify(token, this.jwtKey) as authenticationData
          return {
             id: tokenData.id
          }

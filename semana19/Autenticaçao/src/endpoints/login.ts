@@ -11,7 +11,7 @@ export const login = async (
       // buscar o usuário no banco por email
       const { email, password } = req.body
 
-      const [user] = await connection("to_do_list_users").where({ email })
+      const [user] = await connection("usuarios").where({ email })
 
       // conferir se ele existe e a senha está correta
       if(!user || user.password !== password){
