@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 
 const ContainerVideo = styled.section`
+    width: 1240px;
+    max-width: 100%;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    padding: 25px;
+    grid-template-columns: 240px 760px 240px;
+    padding: 20px 10px;
 
     @media (max-width: 420px){
-       grid-template-columns: 1fr;
-       justify-content: center;
-       gap: 10px;
+       display: flex;
+       flex-direction: column;
     }
 `
 
@@ -22,9 +24,7 @@ const CardInfo = styled.div`
         display: flex;
     }
 `
-
-
 export{
     ContainerVideo,
-    CardInfo,
+    CardInfo
 }

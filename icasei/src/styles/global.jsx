@@ -1,5 +1,4 @@
 import { createTheme} from '@mui/material/styles';
-import { createGlobalStyle } from 'styled-components';
 
 export const theme = createTheme({
     palette:{
@@ -20,15 +19,3 @@ export const theme = createTheme({
         }
     }
 });
-
-export const GlobalStyle = createGlobalStyle`
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    li{
-        list-style: none;
-    }
-`

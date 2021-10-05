@@ -22,7 +22,7 @@ const VideoPage = () => {
 
     return (
         <ContainerVideo>
-            <div>
+            <div style={{marginBottom: 10}}>
                 <Back/>
             </div>
             
@@ -47,7 +47,7 @@ const VideoPage = () => {
                                     {details.snippet.channelTitle}
                                 </Typography>
                                 
-                                <Typography variant="body2" color="text.secondary" sx={{height: 80, overflow: 'auto'}}>
+                                <Typography variant="body2" color="text.secondary" sx={{height: 80, overflow: 'hidden'}}>
                                     {details.snippet.description}
                                 </Typography>
                             </CardContent>
