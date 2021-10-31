@@ -1,0 +1,35 @@
+{
+  "name": "exercicios-aula63",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "ts-node-dev ./src/index.ts",
+    "start": "tsc && node ./build/index.ts",
+    "test": "node ./node_modules/jest/bin/jest.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.2",
+    "jest": "^27.2.1",
+    "ts-jest": "^27.0.5",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^3.9.10"
+  },
+  "dependencies": {
+    "@types/knex": "^0.16.1",
+    "@types/node": "^14.0.6",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "knex": "^0.95.11",
+    "mysql": "^2.18.1"
+  }
+}
